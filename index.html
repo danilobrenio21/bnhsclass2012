@@ -73,7 +73,7 @@
                 <div class="hidden md:flex items-center space-x-6 text-sm">
                     <a href="#directory" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Class Roster</a>
                     <a href="#memories" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Memory Wall</a>
-                    <a href="#timecapsule" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">2012 Jukebox</a>
+                    <a href="#timecapsule" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">2012 Vault</a>
                     <a href="#gallery" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Photo Vault</a>
                     <a href="#reunion" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold transition-all shadow-md shadow-amber-500/20">
                         Reunion RSVP
@@ -114,8 +114,9 @@
                     <span class="block text-3xl font-extrabold text-amber-400">2012</span>
                     <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Graduation Year</span>
                 </div>
-                <div class="glass-card rounded-2xl p-5 text-center">
-                    <span class="block text-3xl font-extrabold text-amber-400">Pangasinan</span>
+                <!-- FIXED PANGASINAN STAT CARD -->
+                <div class="glass-card rounded-2xl p-5 text-center flex flex-col justify-center items-center">
+                    <span class="block text-xl sm:text-2xl lg:text-3xl font-extrabold text-amber-400 truncate max-w-full">Pangasinan</span>
                     <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Origins</span>
                 </div>
             </div>
@@ -205,55 +206,16 @@
         </div>
     </section>
 
-    <!-- 2012 TIME CAPSULE & JUKEBOX -->
+    <!-- 2012 TIME CAPSULE (JUKEBOX REMOVED) -->
     <section id="timecapsule" class="py-16 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Retro Vault</span>
-                <h2 class="text-3xl font-bold text-white font-serif mt-1">The 2012 Jukebox & Capsule</h2>
-                <p class="text-slate-400 mt-2">Relive the soundtrack and global trends of our graduation year.</p>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">The 2012 Time Capsule</h2>
+                <p class="text-slate-400 mt-2">Relive the global trends and spirit of our graduation year.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Retro Audio Jukebox -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
-                                <i class="fa-solid fa-compact-disc animate-spin"></i> Batch 2012 Jukebox
-                            </span>
-                            <span class="text-[10px] text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">Synth-Audio</span>
-                        </div>
-                        <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center text-black text-2xl font-bold shadow-md">
-                                <i class="fa-solid fa-music"></i>
-                            </div>
-                            <div class="overflow-hidden">
-                                <h4 id="songTitle" class="text-white font-semibold text-sm truncate">Gangnam Style</h4>
-                                <p id="songArtist" class="text-slate-400 text-xs truncate">PSY • 2012 Global Phenomenon</p>
-                            </div>
-                        </div>
-
-                        <!-- Animated Visualizer Bars -->
-                        <div class="flex items-end justify-between h-8 gap-1 mb-4 px-2" id="visualizer">
-                            <div class="w-full bg-amber-400/40 rounded-t h-3"></div>
-                            <div class="w-full bg-amber-400/80 rounded-t h-6"></div>
-                            <div class="w-full bg-amber-400/60 rounded-t h-4"></div>
-                            <div class="w-full bg-amber-400 rounded-t h-8"></div>
-                            <div class="w-full bg-amber-400/50 rounded-t h-5"></div>
-                            <div class="w-full bg-amber-400/70 rounded-t h-7"></div>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-800 flex justify-around items-center">
-                        <button onclick="prevSong()" class="text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-backward"></i></button>
-                        <button onclick="togglePlay()" id="playBtn" class="w-10 h-10 rounded-full bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <button onclick="nextSong()" class="text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-forward"></i></button>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Pop Culture Highlights -->
                 <div class="glass-card rounded-2xl p-6">
                     <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
@@ -576,37 +538,6 @@
         document.getElementById('sectionFilter').addEventListener('change', filterAndRender);
 
         renderRoster(alumniList);
-
-        // JUKEBOX LOGIC
-        const songs = [
-            { title: "Gangnam Style", artist: "PSY • 2012 Global Hit" },
-            { title: "Call Me Maybe", artist: "Carly Rae Jepsen • 2012 Hit" },
-            { title: "Payphone", artist: "Maroon 5 • 2012 Chartbuster" },
-            { title: "Whistle", artist: "Flo Rida • 2012 Summer Anthem" }
-        ];
-        let currentSongIndex = 0;
-        let isPlaying = false;
-
-        function updateSongUI() {
-            document.getElementById('songTitle').innerText = songs[currentSongIndex].title;
-            document.getElementById('songArtist').innerText = songs[currentSongIndex].artist;
-        }
-
-        function togglePlay() {
-            isPlaying = !isPlaying;
-            const btn = document.getElementById('playBtn');
-            btn.innerHTML = isPlaying ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
-        }
-
-        function nextSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            updateSongUI();
-        }
-
-        function prevSong() {
-            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-            updateSongUI();
-        }
 
         // PHOTO GALLERY LOGIC
         const galleryPhotos = [
