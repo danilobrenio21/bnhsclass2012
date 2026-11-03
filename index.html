@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNHS Class of 2012 | 3D Digital Yearbook</title>
+    <title>BNHS Class of 2012 | Ultra-Modern Portal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,167 +14,342 @@
                         burgos: {
                             gold: '#D4AF37',
                             navy: '#050C1A',
-                            paper: '#FDFBF7',
-                            paperDark: '#F4EFE6',
-                            ink: '#1E293B'
+                            slate: '#0F172A',
+                            accent: '#F59E0B'
                         }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        handwriting: ['Caveat', 'cursive']
+                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .perspective-2000 { perspective: 2000px; }
+        .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
         .backface-hidden { backface-visibility: hidden; }
-        
-        /* 3D Book Styling */
-        .book-spine-shadow {
-            background: linear-gradient(to right, 
-                rgba(0,0,0,0.15) 0%, 
-                rgba(0,0,0,0.05) 8%, 
-                rgba(0,0,0,0) 15%, 
-                rgba(0,0,0,0) 85%, 
-                rgba(0,0,0,0.05) 92%, 
-                rgba(0,0,0,0.15) 100%);
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
-        .center-spine-fold {
-            background: linear-gradient(to right, 
-                rgba(0,0,0,0.2) 0%, 
-                rgba(0,0,0,0.05) 45%, 
-                rgba(255,255,255,0.4) 50%, 
-                rgba(0,0,0,0.05) 55%, 
-                rgba(0,0,0,0.2) 100%);
+        .glass-card-hover:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
         }
-        .paper-texture {
-            background-color: #fdfbf7;
-            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px);
-            background-size: 16px 16px;
+        .mesh-gradient {
+            background-color: #050c1a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.25) 0px, transparent 50%);
         }
-
-        /* Page Flip Animation */
-        .page-turn-left {
-            transform-origin: left center;
-            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-        .page-turn-right {
-            transform-origin: right center;
-            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #050C1A; }
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
     </style>
 </head>
-<body class="bg-burgos-navy text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+<body class="bg-burgos-navy text-slate-100 font-sans antialiased min-h-screen flex flex-col mesh-gradient">
 
-    <!-- TOP HEADER NAVBAR -->
-    <header class="bg-burgos-navy/90 backdrop-blur-xl border-b border-amber-500/20 py-4 px-4 sm:px-8 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-200 text-black flex items-center justify-center font-extrabold text-base shadow-lg shadow-amber-500/20">
-                    BNHS
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-burgos-navy/80 backdrop-blur-xl border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-200 flex items-center justify-center font-extrabold text-black text-lg shadow-lg shadow-amber-500/20 border border-yellow-100">
+                        BNHS
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-wider text-white block leading-tight">BURGOS NATIONAL HS</span>
+                        <span class="text-[10px] text-amber-400 font-semibold tracking-widest uppercase">Class of 2012 • Poblacion, Pangasinan</span>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-white font-bold text-base leading-tight font-serif tracking-wide">Burgos National High School</h1>
-                    <p class="text-amber-400 text-xs font-medium tracking-widest uppercase">Class of 2012 Official Digital Yearbook</p>
+                <div class="hidden md:flex items-center space-x-6 text-sm">
+                    <a href="#directory" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Class Roster</a>
+                    <a href="#memories" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Memory Wall</a>
+                    <a href="#timecapsule" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">2012 Vault</a>
+                    <a href="#gallery" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Photo Vault</a>
+                    <a href="#reunion" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold transition-all shadow-md shadow-amber-500/20">
+                        Reunion RSVP
+                    </a>
                 </div>
             </div>
+        </div>
+    </nav>
 
-            <!-- STATS BADGES (FIXED PANGASINAN OVERFLOW) -->
-            <div class="flex items-center gap-2 sm:gap-3 text-xs">
-                <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-center">
-                    <span class="text-amber-400 font-bold block" id="totalAlumniCount">228</span>
-                    <span class="text-[9px] text-slate-400 uppercase">Graduates</span>
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-amber-300 text-xs font-semibold mb-6">
+                <i class="fa-solid fa-sparkles text-amber-400"></i> BNHS Batch 2012 Digital Sanctuary
+            </div>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-serif">
+                Burgos National High School
+            </h1>
+            <p class="mt-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 font-light tracking-wide">
+                Class of 2012 Alumni Experience
+            </p>
+            <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-slate-400 leading-relaxed">
+                Poblacion, Burgos, Pangasinan, Philippines.<br>
+                Honoring our 5 core sections — <span class="text-amber-300 font-semibold">Diamond, Jade, Ruby, Amethyst & Emerald</span>.
+            </p>
+
+            <!-- BATCH STATS -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div class="glass-card rounded-2xl p-5 text-center">
+                    <span class="block text-3xl font-extrabold text-amber-400" id="totalAlumniCount">0</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Total Graduates</span>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-center">
-                    <span class="text-amber-400 font-bold block">5</span>
-                    <span class="text-[9px] text-slate-400 uppercase">Sections</span>
+                <div class="glass-card rounded-2xl p-5 text-center">
+                    <span class="block text-3xl font-extrabold text-amber-400">5</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Sections</span>
                 </div>
-                <!-- FIXED PANGASINAN DISPLAY -->
-                <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-center">
-                    <span class="text-amber-400 font-bold text-xs tracking-tight block">Pangasinan</span>
-                    <span class="text-[9px] text-slate-400 uppercase">Origins</span>
+                <div class="glass-card rounded-2xl p-5 text-center">
+                    <span class="block text-3xl font-extrabold text-amber-400">2012</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Graduation Year</span>
+                </div>
+                <!-- FIXED PANGASINAN STAT CARD -->
+                <div class="glass-card rounded-2xl p-5 text-center flex flex-col justify-center items-center">
+                    <span class="block text-xl sm:text-2xl lg:text-3xl font-extrabold text-amber-400 truncate max-w-full">Pangasinan</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Origins</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- SEARCH & CHAPTER NAVIGATION RIBBONS -->
-    <nav class="max-w-7xl mx-auto px-4 w-full mt-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 bg-slate-900/80 p-4 rounded-2xl border border-slate-800 backdrop-blur-md">
-            <!-- SECTION CHAPTER RIBBONS -->
-            <div class="flex flex-wrap items-center gap-1.5" id="sectionRibbons">
-                <!-- Dynamically Populated Section Tabs -->
+    <!-- CLASS ROSTER SECTION -->
+    <section id="directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-slate-800/80 pb-6">
+            <div>
+                <h2 class="text-3xl font-bold text-white font-serif flex items-center gap-3">
+                    <i class="fa-solid fa-users-viewfinder text-amber-400"></i> Interactive Batch Roster
+                </h2>
+                <p class="text-slate-400 mt-1">Every classmate is represented. Hover or click cards to flip for updates & nostalgic notes.</p>
             </div>
 
-            <!-- QUICK ALUMNI SEARCH -->
-            <div class="relative w-full md:w-72">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
-                <input type="text" id="searchInput" placeholder="Find graduate name..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs text-white focus:outline-none focus:border-amber-400 transition-all">
-                <div id="searchResultsDropdown" class="absolute left-0 right-0 top-11 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl max-h-60 overflow-y-auto hidden z-50 p-2"></div>
+            <!-- SEARCH AND FILTER -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="Search classmate name..." class="glass-card text-white pl-10 pr-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 w-full sm:w-64 transition-all">
+                </div>
+                <select id="sectionFilter" class="glass-card text-amber-400 font-semibold px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 cursor-pointer">
+                    <option value="ALL">All Sections (5)</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Jade">Jade</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Amethyst">Amethyst</option>
+                    <option value="Emerald">Emerald</option>
+                </select>
             </div>
         </div>
-    </nav>
 
-    <!-- MAIN 3D YEARBOOK STAGE -->
-    <main class="max-w-7xl mx-auto px-2 sm:px-6 my-8 w-full flex-grow flex flex-col items-center justify-center perspective-2000">
-        
-        <!-- 3D HARDCOVER BOOK WRAPPER -->
-        <div class="relative w-full max-w-5xl bg-amber-950/40 rounded-3xl p-3 sm:p-6 shadow-2xl border border-amber-900/40 backdrop-blur-md">
-            
-            <!-- BOOK SPINE CENTER LINE -->
-            <div class="absolute left-1/2 top-0 bottom-0 w-8 -ml-4 center-spine-fold z-30 pointer-events-none hidden md:block"></div>
+        <!-- SECTION TABS -->
+        <div class="flex flex-wrap gap-2 mb-8" id="sectionTabs"></div>
 
-            <!-- 2-PAGE SPREAD CONTAINER -->
-            <div class="grid grid-cols-1 md:grid-cols-2 bg-burgos-paper text-burgos-ink rounded-2xl shadow-2xl border border-amber-200 relative overflow-hidden min-h-[560px] sm:min-h-[620px] book-spine-shadow" id="bookSpread">
-                
-                <!-- LEFT PAGE: GRADUATE PORTRAIT & BIOGRAPHY -->
-                <div class="p-6 sm:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-amber-200/80 relative paper-texture" id="leftPage">
-                    <!-- Dynamic Left Page Content -->
+        <!-- ROSTER GRID -->
+        <div id="rosterGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+        <div id="noResults" class="hidden text-center py-16 glass-card rounded-2xl mt-4">
+            <i class="fa-regular fa-face-frown text-4xl text-amber-400 mb-3"></i>
+            <h3 class="text-lg font-semibold text-white">No classmates found</h3>
+            <p class="text-slate-400 text-sm mt-1">Try adjusting your search terms or section filter.</p>
+        </div>
+    </section>
+
+    <!-- MEMORY WALL SECTION -->
+    <section id="memories" class="py-16 border-t border-b border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Shared Heritage</span>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">BNHS Campus Memory Wall</h2>
+                <p class="text-slate-400 mt-2">Class stories, canteen snacks, and high school memories.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="memoryGrid">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">Canteen & Gate Snacks</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Fishballs, kikiam, calamares outside the BNHS campus gates, and cold plastic-pack juices during hot afternoons.
+                    </p>
                 </div>
 
-                <!-- RIGHT PAGE: HIGH SCHOOL MEMORIES & DEDICATION -->
-                <div class="p-6 sm:p-10 flex flex-col justify-between relative paper-texture" id="rightPage">
-                    <!-- Dynamic Right Page Content -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">Intramurals & Cheering</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Practicing yelling routines after class, inter-section volleyball & basketball battles, and supporting our section colors.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-2">JS Prom 2012 Nostalgia</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Formal gowns and suits, dancing to 2012 hit ballads in the gym, and taking digicam photos with classmates.
+                    </p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- BOOK FLIP CONTROLS BAR -->
-        <div class="flex items-center justify-between max-w-xl w-full mt-6 bg-slate-900/90 border border-slate-800 p-3 rounded-2xl backdrop-blur-md">
-            <button onclick="prevPage()" id="prevBtn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 font-semibold text-xs transition-all flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Previous Graduate
-            </button>
-
-            <div class="text-xs text-slate-300 font-medium">
-                Page <span id="currentPageNum" class="text-amber-400 font-bold">1</span> of <span id="totalPagesNum">228</span>
+    <!-- 2012 TIME CAPSULE -->
+    <section id="timecapsule" class="py-16 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Retro Vault</span>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">The 2012 Time Capsule</h2>
+                <p class="text-slate-400 mt-2">Relive the global trends and spirit of our graduation year.</p>
             </div>
 
-            <button onclick="nextPage()" id="nextBtn" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs transition-all flex items-center gap-2 shadow-lg shadow-amber-500/20">
-                Next Graduate <i class="fa-solid fa-arrow-right"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-film text-amber-400"></i> Trending in 2012
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
+                            <i class="fa-solid fa-clapperboard text-amber-400 mt-1"></i>
+                            <div><strong>Movies:</strong> The Avengers, The Hunger Games, Skyfall.</div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
+                            <i class="fa-solid fa-mobile-screen-button text-amber-400 mt-1"></i>
+                            <div><strong>Tech:</strong> iPhone 5, Instagram Android release, Temple Run.</div>
+                        </li>
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
+                            <i class="fa-solid fa-hashtag text-amber-400 mt-1"></i>
+                            <div><strong>TV Hits:</strong> Walang Hanggan, Princess and I, Be Careful With My Heart.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-school text-amber-400"></i> BNHS Campus Spirit
+                    </h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <p class="bg-slate-900/60 p-3 rounded-xl border-l-2 border-amber-400 border-slate-800/80">
+                            "Burgos National High School, Poblacion, Burgos, Pangasinan—our shared foundation."
+                        </p>
+                        <p class="bg-slate-900/60 p-3 rounded-xl border-l-2 border-amber-400 border-slate-800/80">
+                            "Class of 2012 graduates carry the pride of BNHS wherever they are in the world!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO VAULT GALLERY SECTION -->
+    <section id="gallery" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+            <div>
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Class Memories</span>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">Batch Photo Vault</h2>
+                <p class="text-slate-400 mt-1">High school throwbacks & photo collections.</p>
+            </div>
+            <button onclick="openModal()" class="px-4 py-2.5 rounded-xl glass-card hover:bg-slate-800 text-amber-400 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Share a Photo
             </button>
         </div>
-    </main>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="photoGallery"></div>
+    </section>
+
+    <!-- REUNION RSVP SECTION -->
+    <section id="reunion" class="bg-gradient-to-br from-amber-950/30 via-burgos-navy to-slate-950 border-t border-slate-800/80 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block p-3 rounded-2xl glass-card text-amber-400 mb-4">
+                <i class="fa-solid fa-calendar-star text-2xl"></i>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white font-serif">Grand Homecoming Reunion</h2>
+            <p class="text-slate-300 mt-2 max-w-xl mx-auto">
+                Let's reconnect in Poblacion, Burgos, Pangasinan! Confirm your contact details or attendance interest below.
+            </p>
+
+            <form onsubmit="handleRSVP(event)" class="glass-card p-6 sm:p-8 rounded-2xl text-left shadow-2xl max-w-xl mx-auto mt-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Full Name</label>
+                        <input type="text" required placeholder="e.g., Danilo Brenio" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Section</label>
+                        <select class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-amber-400 focus:outline-none focus:border-amber-400">
+                            <option>Diamond</option>
+                            <option>Jade</option>
+                            <option>Ruby</option>
+                            <option>Amethyst</option>
+                            <option>Emerald</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Current City / Email or Contact No.</label>
+                    <input type="text" required placeholder="Quezon City / contact@email.com" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Will you attend the next reunion?</label>
+                    <select class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                        <option>Yes! Count me in 🎉</option>
+                        <option>Maybe / Depends on work schedule</option>
+                        <option>Unable to attend, sending regards</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20">
+                    Submit Reunion RSVP
+                </button>
+            </form>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-slate-500 text-xs">
-        <p class="font-semibold text-slate-400">Burgos National High School — Class of 2012 Digital Sanctuary</p>
-        <p class="mt-1">Poblacion, Burgos, Pangasinan, Philippines</p>
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-10 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-semibold text-slate-400">Burgos National High School — Class of 2012 Portal</p>
+            <p class="mt-1 text-xs">Poblacion, Burgos, Pangasinan, Philippines</p>
+            <p class="mt-4 text-xs text-slate-600">Built for BNHS Batch 2012 alumni worldwide.</p>
+        </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC DATA & FLIPBOOK ENGINE -->
+    <!-- PHOTO UPLOAD MODAL -->
+    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl p-6 max-w-md w-full relative">
+            <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold text-white mb-1 font-serif">Share Photo Memory</h3>
+            <p class="text-slate-400 text-xs mb-4">Add a photo to the BNHS 2012 digital vault.</p>
+
+            <form onsubmit="addPhoto(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Photo Caption</label>
+                    <input type="text" id="photoCaption" required placeholder="e.g. JS Prom 2012 at BNHS Gym" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Image URL</label>
+                    <input type="text" id="photoUrl" placeholder="https://..." class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-amber-500/20">
+                    Upload Photo
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC DATA & INTERACTIVITY -->
     <script>
-        // RAW GRADUATE DATA BY SECTION
         const rawBatchData = {
             "Diamond": [
                 "ABELLA, MARY JOY", "ABELLA, CHRISTIAN JAY", "ALOS, LORNALISA", "AQUINO, FROILAN", 
@@ -247,182 +422,161 @@
             ]
         };
 
-        // CONVERT TO MASTER DEDICATED PAGE ARRAY
-        let graduates = [];
-        let globalIndex = 1;
+        let alumniList = [];
+        let idCounter = 1;
 
-        Object.keys(rawBatchData).forEach(sec => {
-            rawBatchData[sec].forEach(name => {
-                graduates.push({
-                    pageNumber: globalIndex++,
+        Object.keys(rawBatchData).forEach(section => {
+            rawBatchData[section].forEach(name => {
+                alumniList.push({
+                    id: idCounter++,
                     name: name.trim(),
-                    section: sec,
-                    quote: "Burgos National High School Batch 2012 forever!",
-                    memory: "Unforgettable high school memories in Poblacion, Burgos, Pangasinan."
+                    section: section,
+                    hasOptedInBio: false
                 });
             });
         });
 
-        document.getElementById('totalAlumniCount').innerText = graduates.length;
-        document.getElementById('totalPagesNum').innerText = graduates.length;
+        document.getElementById('totalAlumniCount').innerText = alumniList.length;
 
-        let currentIndex = 0; // 0-based page index
-
-        // RENDER SECTION BOOKMARK RIBBONS
-        const ribbonContainer = document.getElementById('sectionRibbons');
-        const sectionNames = ["Diamond", "Jade", "Ruby", "Amethyst", "Emerald"];
+        const sectionTabs = document.getElementById('sectionTabs');
+        const sections = ["ALL", "Diamond", "Jade", "Ruby", "Amethyst", "Emerald"];
         
-        sectionNames.forEach(sec => {
-            const firstGradIndex = graduates.findIndex(g => g.section === sec);
+        sections.forEach(sec => {
             const btn = document.createElement('button');
-            btn.className = 'px-3 py-1 rounded-t-lg text-xs font-bold border transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-amber-400 hover:text-amber-400';
-            btn.innerText = `Sec ${sec}`;
-            btn.onclick = () => jumpToPage(firstGradIndex);
-            ribbonContainer.appendChild(btn);
+            btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${sec === 'ALL' ? 'bg-amber-500 text-black border-amber-500 shadow-md shadow-amber-500/20' : 'glass-card text-slate-300 hover:border-amber-400'}`;
+            btn.innerText = sec === 'ALL' ? 'All Sections' : `Section ${sec}`;
+            btn.onclick = () => {
+                document.getElementById('sectionFilter').value = sec;
+                filterAndRender();
+                updateTabStyles(btn);
+            };
+            sectionTabs.appendChild(btn);
         });
 
-        // RENDER DEDICATED 2-PAGE SPREAD FOR CURRENT GRADUATE
-        function renderSpread(index) {
-            const grad = graduates[index];
-            const leftPage = document.getElementById('leftPage');
-            const rightPage = document.getElementById('rightPage');
+        function updateTabStyles(activeBtn) {
+            Array.from(sectionTabs.children).forEach(btn => {
+                btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all glass-card text-slate-300 hover:border-amber-400';
+            });
+            activeBtn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all bg-amber-500 text-black border-amber-500 shadow-md shadow-amber-500/20';
+        }
 
-            // LEFT PAGE: DEDICATED PORTRAIT & OFFICIAL PROFILE
-            leftPage.innerHTML = `
-                <div>
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
-                            Section ${grad.section}
-                        </span>
-                        <span class="text-xs font-semibold text-slate-400 font-serif">Page ${grad.pageNumber}</span>
-                    </div>
+        function renderRoster(data) {
+            const container = document.getElementById('rosterGrid');
+            const noRes = document.getElementById('noResults');
+            container.innerHTML = '';
 
-                    <!-- PORTRAIT FRAME -->
-                    <div class="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-amber-600 p-1.5 shadow-xl mb-6">
-                        <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center border-4 border-white shadow-inner">
-                            <span class="text-white font-extrabold text-5xl sm:text-6xl font-serif">
-                                ${grad.name.charAt(0)}
-                            </span>
+            if (data.length === 0) {
+                noRes.classList.remove('hidden');
+                return;
+            } else {
+                noRes.classList.add('hidden');
+            }
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'group perspective-1000 h-64 cursor-pointer';
+                card.innerHTML = `
+                    <div class="relative w-full h-full duration-500 transform-style-3d group-hover:rotate-y-180 rounded-2xl glass-card glass-card-hover">
+                        <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800/40 to-slate-900/80">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                        Section ${item.section}
+                                    </span>
+                                    <i class="fa-solid fa-arrows-rotate text-slate-600 text-xs group-hover:text-amber-400 transition-colors" title="Hover to flip"></i>
+                                </div>
+                                <div class="w-16 h-16 mx-auto rounded-full bg-slate-900 border-2 border-amber-400/40 flex items-center justify-center text-amber-300 font-bold text-xl mb-3 shadow-inner">
+                                    ${item.name.charAt(0)}
+                                </div>
+                                <h3 class="text-white font-bold text-center text-sm line-clamp-2">${item.name}</h3>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-[11px] text-slate-400 block font-serif italic">Burgos National HS 2012</span>
+                                <span class="text-[10px] text-amber-400/80 mt-1 block">Hover to view back <i class="fa-solid fa-hand-pointer"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-amber-950/70 to-slate-950 border border-amber-500/30">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 block mb-1">BNHS Alumni</span>
+                                <h4 class="text-white font-bold text-sm mb-2">${item.name}</h4>
+                                <p class="text-slate-300 text-xs italic mb-2">"Proud Batch 2012 graduate from Poblacion, Burgos, Pangasinan."</p>
+                            </div>
+                            <div class="space-y-1 text-[11px] text-slate-400 border-t border-slate-800/80 pt-2">
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-school text-amber-400"></i> Section ${item.section}</div>
+                                <div class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-amber-400"></i> Class of 2012</div>
+                            </div>
                         </div>
                     </div>
+                `;
+                container.appendChild(card);
+            });
+        }
 
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center font-serif leading-tight mb-2">
-                        ${grad.name}
-                    </h2>
-                    <p class="text-center text-xs font-bold text-amber-700 uppercase tracking-widest">
-                        Burgos National High School • Batch 2012
-                    </p>
-                </div>
+        function filterAndRender() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const section = document.getElementById('sectionFilter').value;
 
-                <div class="mt-8 border-t border-amber-200/80 pt-4 text-center">
-                    <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest block">Home Base</span>
-                    <span class="text-xs font-bold text-slate-700">Poblacion, Burgos, Pangasinan</span>
-                </div>
-            `;
+            const filtered = alumniList.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(query);
+                const matchesSection = (section === 'ALL' || item.section === section);
+                return matchesSearch && matchesSection;
+            });
 
-            // RIGHT PAGE: DEDICATION & YEARBOOK NOTES
-            rightPage.innerHTML = `
-                <div>
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Class Year Book Dedication</span>
-                        <span class="text-xs font-semibold text-slate-400 font-serif">Page ${grad.pageNumber}B</span>
+            renderRoster(filtered);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterAndRender);
+        document.getElementById('sectionFilter').addEventListener('change', filterAndRender);
+
+        renderRoster(alumniList);
+
+        const galleryPhotos = [
+            { title: "Graduation Day 2012", tag: "BNHS Grounds", url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80" },
+            { title: "JS Prom Night Memories", tag: "Burgos Gym", url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&q=80" },
+            { title: "Campus Hangouts", tag: "Poblacion Burgos", url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80" },
+            { title: "Intramurals Cheering", tag: "Sports Fest 2012", url: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&q=80" }
+        ];
+
+        function renderGallery() {
+            const gallery = document.getElementById('photoGallery');
+            gallery.innerHTML = '';
+            galleryPhotos.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'relative group overflow-hidden rounded-2xl glass-card h-52';
+                item.innerHTML = `
+                    <img src="${photo.url}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-[10px] font-bold text-amber-400 bg-black/60 backdrop-blur px-2 py-0.5 rounded-lg border border-amber-400/20">${photo.tag}</span>
+                        <h4 class="text-white font-semibold text-sm mt-1">${photo.title}</h4>
                     </div>
+                `;
+                gallery.appendChild(item);
+            });
+        }
+        renderGallery();
 
-                    <!-- SENIOR YEARBOOK QUOTE -->
-                    <div class="bg-amber-50/80 border-l-4 border-amber-500 p-5 rounded-r-2xl mb-6 shadow-sm">
-                        <span class="text-xs font-bold uppercase tracking-wider text-amber-800 block mb-1">Senior Graduation Quote</span>
-                        <p class="text-slate-800 text-base font-handwriting text-xl leading-relaxed">
-                            "${grad.quote}"
-                        </p>
-                    </div>
+        function openModal() { document.getElementById('uploadModal').classList.remove('hidden'); }
+        function closeModal() { document.getElementById('uploadModal').classList.add('hidden'); }
 
-                    <!-- HIGH SCHOOL MEMORY NOTE -->
-                    <div class="bg-white/80 border border-amber-200 p-5 rounded-2xl shadow-sm mb-6">
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">High School Reflection</span>
-                        <p class="text-slate-700 text-xs sm:text-sm leading-relaxed">
-                            ${grad.memory}
-                        </p>
-                    </div>
-                </div>
+        function addPhoto(e) {
+            e.preventDefault();
+            const caption = document.getElementById('photoCaption').value;
+            const urlInput = document.getElementById('photoUrl').value;
+            const url = urlInput.startsWith('http') ? urlInput : 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80';
 
-                <div class="border-t border-amber-200/80 pt-4 flex justify-between items-center text-xs text-slate-400">
-                    <span>Burgos National HS</span>
-                    <span class="font-serif italic">Class of 2012</span>
-                </div>
-            `;
-
-            document.getElementById('currentPageNum').innerText = grad.pageNumber;
-            updateButtonStates();
+            galleryPhotos.unshift({ title: caption, tag: "Alumni Upload", url: url });
+            renderGallery();
+            closeModal();
+            alert("Memory uploaded to the Batch 2012 Vault!");
         }
 
-        // PAGE NAVIGATION
-        function nextPage() {
-            if (currentIndex < graduates.length - 1) {
-                currentIndex++;
-                renderSpread(currentIndex);
-            }
+        function handleRSVP(e) {
+            e.preventDefault();
+            alert("Thank you! Your RSVP has been logged for BNHS Batch 2012.");
+            e.target.reset();
         }
-
-        function prevPage() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                renderSpread(currentIndex);
-            }
-        }
-
-        function jumpToPage(index) {
-            currentIndex = index;
-            renderSpread(currentIndex);
-        }
-
-        function updateButtonStates() {
-            document.getElementById('prevBtn').disabled = (currentIndex === 0);
-            document.getElementById('nextBtn').disabled = (currentIndex === graduates.length - 1);
-        }
-
-        // KEYBOARD NAVIGATION (LEFT & RIGHT ARROWS)
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextPage();
-            if (e.key === 'ArrowLeft') prevPage();
-        });
-
-        // SEARCH DROPDOWN LOGIC
-        const searchInput = document.getElementById('searchInput');
-        const dropdown = document.getElementById('searchResultsDropdown');
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            if (!query) {
-                dropdown.classList.add('hidden');
-                return;
-            }
-
-            const results = graduates.filter(g => g.name.toLowerCase().includes(query));
-            dropdown.innerHTML = '';
-
-            if (results.length === 0) {
-                dropdown.innerHTML = `<div class="text-xs text-slate-400 p-2">No graduate found</div>`;
-            } else {
-                results.forEach(g => {
-                    const item = document.createElement('div');
-                    item.className = 'p-2 hover:bg-slate-800 rounded-lg cursor-pointer text-xs text-slate-200 flex justify-between items-center';
-                    item.innerHTML = `
-                        <span class="font-semibold">${g.name}</span>
-                        <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Sec ${g.section} (Pg ${g.pageNumber})</span>
-                    `;
-                    item.onclick = () => {
-                        jumpToPage(g.pageNumber - 1);
-                        dropdown.classList.add('hidden');
-                        searchInput.value = '';
-                    };
-                    dropdown.appendChild(item);
-                });
-            }
-            dropdown.classList.remove('hidden');
-        });
-
-        // INITIAL RENDER
-        renderSpread(currentIndex);
     </script>
 </body>
 </html>
