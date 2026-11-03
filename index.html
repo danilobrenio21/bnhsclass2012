@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNHS Class of 2012 | Burgos National High School</title>
+    <title>BNHS Class of 2012 | Ultra-Modern Portal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,58 +13,69 @@
                     colors: {
                         burgos: {
                             gold: '#D4AF37',
-                            navy: '#0A192F',
-                            slate: '#1E293B',
-                            lightGold: '#F3E5AB'
+                            navy: '#050C1A',
+                            slate: '#0F172A',
+                            accent: '#F59E0B'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif']
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
-        .bg-grid-pattern {
-            background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px);
-            background-size: 24px 24px;
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0A192F; }
+        .glass-card-hover:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+        }
+        .mesh-gradient {
+            background-color: #050c1a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.25) 0px, transparent 50%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050C1A; }
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
     </style>
 </head>
-<body class="bg-burgos-navy text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-burgos-navy text-slate-100 font-sans antialiased min-h-screen flex flex-col mesh-gradient">
 
     <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 bg-burgos-navy/90 backdrop-blur-md border-b border-slate-800">
+    <nav class="sticky top-0 z-50 bg-burgos-navy/80 backdrop-blur-xl border-b border-amber-500/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-bold text-black text-xl shadow-lg border-2 border-amber-200">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-200 flex items-center justify-center font-extrabold text-black text-lg shadow-lg shadow-amber-500/20 border border-yellow-100">
                         BNHS
                     </div>
                     <div>
-                        <span class="text-xl font-bold tracking-wider text-white block leading-tight">BURGOS NATIONAL HS</span>
-                        <span class="text-xs text-amber-400 font-medium tracking-widest uppercase">Class of 2012 Portal • Poblacion, Pangasinan</span>
+                        <span class="text-lg font-bold tracking-wider text-white block leading-tight">BURGOS NATIONAL HS</span>
+                        <span class="text-[10px] text-amber-400 font-semibold tracking-widest uppercase">Class of 2012 • Poblacion, Pangasinan</span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-6 text-sm">
                     <a href="#directory" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Class Roster</a>
                     <a href="#memories" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Memory Wall</a>
-                    <a href="#timecapsule" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">2012 Capsule</a>
+                    <a href="#timecapsule" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">2012 Jukebox</a>
                     <a href="#gallery" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Photo Vault</a>
-                    <a href="#reunion" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-semibold transition-all shadow-md hover:shadow-amber-500/20">
+                    <a href="#reunion" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold transition-all shadow-md shadow-amber-500/20">
                         Reunion RSVP
                     </a>
                 </div>
@@ -73,39 +84,39 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-slate-900 via-burgos-navy to-slate-950 bg-grid-pattern border-b border-slate-800">
+    <header class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-medium mb-6">
-                <i class="fa-solid fa-graduation-cap"></i> Celebrating Batch 2012 Heritage & Pride
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-amber-300 text-xs font-semibold mb-6">
+                <i class="fa-solid fa-sparkles text-amber-400"></i> BNHS Batch 2012 Digital Sanctuary
             </div>
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white font-serif">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-serif">
                 Burgos National High School
             </h1>
-            <p class="mt-4 text-2xl sm:text-3xl text-amber-400 font-light tracking-wide">
-                Class of 2012 Year Book & Alumni Hub
+            <p class="mt-4 text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 font-light tracking-wide">
+                Class of 2012 Alumni Experience
             </p>
-            <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-slate-400 leading-relaxed">
                 Poblacion, Burgos, Pangasinan, Philippines.<br>
-                Connecting classmates across <span class="text-amber-300 font-semibold">Diamond, Jade, Ruby, Amethyst & Emerald</span>.
+                Honoring our 5 core sections — <span class="text-amber-300 font-semibold">Diamond, Jade, Ruby, Amethyst & Emerald</span>.
             </p>
 
             <!-- BATCH STATS -->
-            <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                <div class="bg-slate-800/60 backdrop-blur border border-slate-700/60 rounded-xl p-4 text-center">
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div class="glass-card rounded-2xl p-5 text-center">
                     <span class="block text-3xl font-extrabold text-amber-400" id="totalAlumniCount">0</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider mt-1 block">Total Graduates</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Total Graduates</span>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur border border-slate-700/60 rounded-xl p-4 text-center">
+                <div class="glass-card rounded-2xl p-5 text-center">
                     <span class="block text-3xl font-extrabold text-amber-400">5</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider mt-1 block">Sections</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Sections</span>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur border border-slate-700/60 rounded-xl p-4 text-center">
+                <div class="glass-card rounded-2xl p-5 text-center">
                     <span class="block text-3xl font-extrabold text-amber-400">2012</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider mt-1 block">Graduation Year</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Graduation Year</span>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur border border-slate-700/60 rounded-xl p-4 text-center">
+                <div class="glass-card rounded-2xl p-5 text-center">
                     <span class="block text-3xl font-extrabold text-amber-400">Pangasinan</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider mt-1 block">Home Base</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest mt-1 block">Origins</span>
                 </div>
             </div>
         </div>
@@ -113,21 +124,21 @@
 
     <!-- CLASS ROSTER SECTION -->
     <section id="directory" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-slate-800 pb-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-slate-800/80 pb-6">
             <div>
                 <h2 class="text-3xl font-bold text-white font-serif flex items-center gap-3">
-                    <i class="fa-solid fa-users text-amber-400"></i> Class Roster Directory
+                    <i class="fa-solid fa-users-viewfinder text-amber-400"></i> Interactive Batch Roster
                 </h2>
-                <p class="text-slate-400 mt-1">High school names are listed for everyone. Flip cards to view optional updates or memories!</p>
+                <p class="text-slate-400 mt-1">Every classmate is represented. Hover or click cards to flip for updates & nostalgic notes.</p>
             </div>
 
             <!-- SEARCH AND FILTER -->
             <div class="flex flex-col sm:flex-row gap-3">
                 <div class="relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400"></i>
-                    <input type="text" id="searchInput" placeholder="Search classmate name..." class="bg-slate-800 border border-slate-700 text-white pl-10 pr-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 w-full sm:w-64 transition-all">
+                    <input type="text" id="searchInput" placeholder="Search classmate name..." class="glass-card text-white pl-10 pr-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 w-full sm:w-64 transition-all">
                 </div>
-                <select id="sectionFilter" class="bg-slate-800 border border-slate-700 text-amber-400 font-semibold px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 cursor-pointer">
+                <select id="sectionFilter" class="glass-card text-amber-400 font-semibold px-4 py-2.5 rounded-xl text-sm focus:outline-none focus:border-amber-400 cursor-pointer">
                     <option value="ALL">All Sections (5)</option>
                     <option value="Diamond">Diamond</option>
                     <option value="Jade">Jade</option>
@@ -144,7 +155,7 @@
         <!-- ROSTER GRID -->
         <div id="rosterGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 
-        <div id="noResults" class="hidden text-center py-16 bg-slate-800/30 rounded-2xl border border-slate-800 mt-4">
+        <div id="noResults" class="hidden text-center py-16 glass-card rounded-2xl mt-4">
             <i class="fa-regular fa-face-frown text-4xl text-amber-400 mb-3"></i>
             <h3 class="text-lg font-semibold text-white">No classmates found</h3>
             <p class="text-slate-400 text-sm mt-1">Try adjusting your search terms or section filter.</p>
@@ -152,90 +163,91 @@
     </section>
 
     <!-- MEMORY WALL SECTION -->
-    <section id="memories" class="bg-slate-900/60 border-t border-b border-slate-800 py-16">
+    <section id="memories" class="py-16 border-t border-b border-slate-800/80 bg-slate-950/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-amber-400 text-sm font-semibold tracking-widest uppercase">Shared History</span>
-                <h2 class="text-3xl font-bold text-white font-serif mt-1">BNHS Memory Wall & Superlatives</h2>
-                <p class="text-slate-400 mt-2">Unforgettable moments, teacher catchphrases, and campus throwbacks.</p>
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Shared Heritage</span>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">BNHS Campus Memory Wall</h2>
+                <p class="text-slate-400 mt-2">Class stories, canteen snacks, and high school memories.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
-                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="memoryGrid">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
-                    <h3 class="text-white font-bold text-base mb-2">Canteen & Break Time Favorites</h3>
+                    <h3 class="text-white font-bold text-base mb-2">Canteen & Gate Snacks</h3>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Fishballs, kikiamb, calamares outside the school gates, and buying cold plastic-pack juices during hot high school afternoons.
+                        Fishballs, kikiam, calamares outside the BNHS campus gates, and cold plastic-pack juices during hot afternoons.
                     </p>
                 </div>
 
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                <div class="glass-card p-6 rounded-2xl">
                     <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
-                    <h3 class="text-white font-bold text-base mb-2">Intramurals & Cheering Battles</h3>
+                    <h3 class="text-white font-bold text-base mb-2">Intramurals & Cheering</h3>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Practicing yell routines after class, inter-section volleyball & basketball tournaments, and supporting our section colors.
+                        Practicing yelling routines after class, inter-section volleyball & basketball battles, and supporting our section colors.
                     </p>
                 </div>
 
-                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                <div class="glass-card p-6 rounded-2xl">
                     <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-music"></i>
                     </div>
                     <h3 class="text-white font-bold text-base mb-2">JS Prom 2012 Nostalgia</h3>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Formal gowns and suits, dancing to 2012 hit ballads in the gym, and taking endless digicam photos with classmates.
+                        Formal gowns and suits, dancing to 2012 hit ballads in the gym, and taking digicam photos with classmates.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2012 TIME CAPSULE -->
-    <section id="timecapsule" class="py-16 border-b border-slate-800">
+    <!-- 2012 TIME CAPSULE & JUKEBOX -->
+    <section id="timecapsule" class="py-16 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-amber-400 text-sm font-semibold tracking-widest uppercase">Flashback Era</span>
-                <h2 class="text-3xl font-bold text-white font-serif mt-1">The 2012 Time Capsule</h2>
-                <p class="text-slate-400 mt-2">Relive the tracks and pop-culture trends from our graduation year.</p>
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Retro Vault</span>
+                <h2 class="text-3xl font-bold text-white font-serif mt-1">The 2012 Jukebox & Capsule</h2>
+                <p class="text-slate-400 mt-2">Relive the soundtrack and global trends of our graduation year.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Jukebox Widget -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-2xl">
+                <!-- Retro Audio Jukebox -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
                                 <i class="fa-solid fa-compact-disc animate-spin"></i> Batch 2012 Jukebox
                             </span>
-                            <span class="text-xs text-slate-500 bg-slate-900 px-2 py-1 rounded">MP3 Player</span>
+                            <span class="text-[10px] text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">Synth-Audio</span>
                         </div>
-                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-lg bg-gradient-to-tr from-amber-500 to-amber-700 flex items-center justify-center text-black text-2xl font-bold shadow-md">
+                        <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center text-black text-2xl font-bold shadow-md">
                                 <i class="fa-solid fa-music"></i>
                             </div>
                             <div class="overflow-hidden">
                                 <h4 id="songTitle" class="text-white font-semibold text-sm truncate">Gangnam Style</h4>
-                                <p id="songArtist" class="text-slate-400 text-xs truncate">PSY • 2012 Global Hit</p>
+                                <p id="songArtist" class="text-slate-400 text-xs truncate">PSY • 2012 Global Phenomenon</p>
                             </div>
                         </div>
-                        <div class="space-y-2">
-                            <div class="bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-amber-400 h-full w-2/3"></div>
-                            </div>
-                            <div class="flex justify-between text-xs text-slate-500">
-                                <span>2:14</span>
-                                <span>3:39</span>
-                            </div>
+
+                        <!-- Animated Visualizer Bars -->
+                        <div class="flex items-end justify-between h-8 gap-1 mb-4 px-2" id="visualizer">
+                            <div class="w-full bg-amber-400/40 rounded-t h-3"></div>
+                            <div class="w-full bg-amber-400/80 rounded-t h-6"></div>
+                            <div class="w-full bg-amber-400/60 rounded-t h-4"></div>
+                            <div class="w-full bg-amber-400 rounded-t h-8"></div>
+                            <div class="w-full bg-amber-400/50 rounded-t h-5"></div>
+                            <div class="w-full bg-amber-400/70 rounded-t h-7"></div>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-800 flex justify-around items-center">
+                    <div class="pt-4 border-t border-slate-800 flex justify-around items-center">
                         <button onclick="prevSong()" class="text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-backward"></i></button>
-                        <button onclick="togglePlay()" id="playBtn" class="w-10 h-10 rounded-full bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 transition-colors shadow-lg">
+                        <button onclick="togglePlay()" id="playBtn" class="w-10 h-10 rounded-full bg-amber-500 text-black flex items-center justify-center hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20">
                             <i class="fa-solid fa-play"></i>
                         </button>
                         <button onclick="nextSong()" class="text-slate-400 hover:text-white transition-colors"><i class="fa-solid fa-forward"></i></button>
@@ -243,20 +255,20 @@
                 </div>
 
                 <!-- Pop Culture Highlights -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6">
+                <div class="glass-card rounded-2xl p-6">
                     <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-film text-amber-400"></i> Trending in 2012
                     </h3>
                     <ul class="space-y-3 text-sm text-slate-300">
-                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-lg">
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
                             <i class="fa-solid fa-clapperboard text-amber-400 mt-1"></i>
                             <div><strong>Movies:</strong> The Avengers, The Hunger Games, Skyfall.</div>
                         </li>
-                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-lg">
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
                             <i class="fa-solid fa-mobile-screen-button text-amber-400 mt-1"></i>
-                            <div><strong>Tech:</strong> iPhone 5, Instagram Android launch, Temple Run fever.</div>
+                            <div><strong>Tech:</strong> iPhone 5, Instagram Android release, Temple Run.</div>
                         </li>
-                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-lg">
+                        <li class="flex items-start gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
                             <i class="fa-solid fa-hashtag text-amber-400 mt-1"></i>
                             <div><strong>TV Hits:</strong> Walang Hanggan, Princess and I, Be Careful With My Heart.</div>
                         </li>
@@ -264,15 +276,15 @@
                 </div>
 
                 <!-- BNHS Pride -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6">
+                <div class="glass-card rounded-2xl p-6">
                     <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-school text-amber-400"></i> BNHS Campus Spirit
                     </h3>
                     <div class="space-y-3 text-sm text-slate-300">
-                        <p class="bg-slate-900/60 p-3 rounded-lg border-l-2 border-amber-400">
-                            "Burgos National High School, Poblacion, Burgos, Pangasinan—our shared home where friendships were built."
+                        <p class="bg-slate-900/60 p-3 rounded-xl border-l-2 border-amber-400 border-slate-800/80">
+                            "Burgos National High School, Poblacion, Burgos, Pangasinan—our shared foundation."
                         </p>
-                        <p class="bg-slate-900/60 p-3 rounded-lg border-l-2 border-amber-400">
+                        <p class="bg-slate-900/60 p-3 rounded-xl border-l-2 border-amber-400 border-slate-800/80">
                             "Class of 2012 graduates carry the pride of BNHS wherever they are in the world!"
                         </p>
                     </div>
@@ -285,11 +297,11 @@
     <section id="gallery" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
             <div>
-                <span class="text-amber-400 text-sm font-semibold tracking-widest uppercase">Class Memories</span>
+                <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Class Memories</span>
                 <h2 class="text-3xl font-bold text-white font-serif mt-1">Batch Photo Vault</h2>
                 <p class="text-slate-400 mt-1">High school throwbacks & photo collections.</p>
             </div>
-            <button onclick="openModal()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
+            <button onclick="openModal()" class="px-4 py-2.5 rounded-xl glass-card hover:bg-slate-800 text-amber-400 font-semibold text-sm transition-all flex items-center gap-2">
                 <i class="fa-solid fa-cloud-arrow-up"></i> Share a Photo
             </button>
         </div>
@@ -298,9 +310,9 @@
     </section>
 
     <!-- REUNION RSVP SECTION -->
-    <section id="reunion" class="bg-gradient-to-br from-amber-950/40 via-burgos-navy to-slate-950 border-t border-slate-800 py-16">
+    <section id="reunion" class="bg-gradient-to-br from-amber-950/30 via-burgos-navy to-slate-950 border-t border-slate-800/80 py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-block p-3 rounded-full bg-amber-500/10 text-amber-400 mb-4 border border-amber-500/20">
+            <div class="inline-block p-3 rounded-2xl glass-card text-amber-400 mb-4">
                 <i class="fa-solid fa-calendar-star text-2xl"></i>
             </div>
             <h2 class="text-3xl sm:text-4xl font-bold text-white font-serif">Grand Homecoming Reunion</h2>
@@ -308,15 +320,15 @@
                 Let's reconnect in Poblacion, Burgos, Pangasinan! Confirm your contact details or attendance interest below.
             </p>
 
-            <form onsubmit="handleRSVP(event)" class="bg-slate-900/80 border border-slate-800 p-6 sm:p-8 rounded-2xl text-left shadow-2xl max-w-xl mx-auto mt-8">
+            <form onsubmit="handleRSVP(event)" class="glass-card p-6 sm:p-8 rounded-2xl text-left shadow-2xl max-w-xl mx-auto mt-8">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Full Name</label>
-                        <input type="text" required placeholder="e.g., Danilo Brenio" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                        <input type="text" required placeholder="e.g., Danilo Brenio" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Section</label>
-                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-amber-400 focus:outline-none focus:border-amber-400">
+                        <select class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-amber-400 focus:outline-none focus:border-amber-400">
                             <option>Diamond</option>
                             <option>Jade</option>
                             <option>Ruby</option>
@@ -327,17 +339,17 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Current City / Email or Contact No.</label>
-                    <input type="text" required placeholder="Quezon City / contact@email.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                    <input type="text" required placeholder="Quezon City / contact@email.com" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
                 </div>
                 <div class="mb-6">
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Will you attend the next reunion?</label>
-                    <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                    <select class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
                         <option>Yes! Count me in 🎉</option>
                         <option>Maybe / Depends on work schedule</option>
                         <option>Unable to attend, sending regards</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold py-3 rounded-xl transition-all shadow-lg hover:shadow-amber-500/20">
+                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20">
                     Submit Reunion RSVP
                 </button>
             </form>
@@ -345,17 +357,17 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-10 text-center text-slate-500 text-sm">
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-10 text-center text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <p class="font-semibold text-slate-400">Burgos National High School — Class of 2012 Portal</p>
-            <p class="mt-1">Poblacion, Burgos, Pangasinan, Philippines</p>
-            <p class="mt-4 text-xs text-slate-600">Maintained for BNHS Batch 2012 alumni worldwide.</p>
+            <p class="mt-1 text-xs">Poblacion, Burgos, Pangasinan, Philippines</p>
+            <p class="mt-4 text-xs text-slate-600">Built for BNHS Batch 2012 alumni worldwide.</p>
         </div>
     </footer>
 
     <!-- PHOTO UPLOAD MODAL -->
-    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-md w-full relative">
+    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl p-6 max-w-md w-full relative">
             <button onclick="closeModal()" class="absolute right-4 top-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
             <h3 class="text-xl font-bold text-white mb-1 font-serif">Share Photo Memory</h3>
             <p class="text-slate-400 text-xs mb-4">Add a photo to the BNHS 2012 digital vault.</p>
@@ -363,13 +375,13 @@
             <form onsubmit="addPhoto(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1">Photo Caption</label>
-                    <input type="text" id="photoCaption" required placeholder="e.g. JS Prom 2012 at BNHS Gym" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                    <input type="text" id="photoCaption" required placeholder="e.g. JS Prom 2012 at BNHS Gym" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1">Image URL</label>
-                    <input type="text" id="photoUrl" placeholder="https://..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+                    <input type="text" id="photoUrl" placeholder="https://..." class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
                 </div>
-                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl text-sm transition-all">
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl text-sm transition-all shadow-lg shadow-amber-500/20">
                     Upload Photo
                 </button>
             </form>
@@ -474,7 +486,7 @@
         
         sections.forEach(sec => {
             const btn = document.createElement('button');
-            btn.className = `px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all ${sec === 'ALL' ? 'bg-amber-500 text-black border-amber-500' : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-amber-400'}`;
+            btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${sec === 'ALL' ? 'bg-amber-500 text-black border-amber-500 shadow-md shadow-amber-500/20' : 'glass-card text-slate-300 hover:border-amber-400'}`;
             btn.innerText = sec === 'ALL' ? 'All Sections' : `Section ${sec}`;
             btn.onclick = () => {
                 document.getElementById('sectionFilter').value = sec;
@@ -486,9 +498,9 @@
 
         function updateTabStyles(activeBtn) {
             Array.from(sectionTabs.children).forEach(btn => {
-                btn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all bg-slate-900 text-slate-300 border-slate-800 hover:border-amber-400';
+                btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all glass-card text-slate-300 hover:border-amber-400';
             });
-            activeBtn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all bg-amber-500 text-black border-amber-500';
+            activeBtn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all bg-amber-500 text-black border-amber-500 shadow-md shadow-amber-500/20';
         }
 
         // RENDER ROSTER
@@ -508,17 +520,17 @@
                 const card = document.createElement('div');
                 card.className = 'group perspective-1000 h-64 cursor-pointer';
                 card.innerHTML = `
-                    <div class="relative w-full h-full duration-500 transform-style-3d group-hover:rotate-y-180 rounded-2xl shadow-lg border border-slate-800 bg-slate-900">
+                    <div class="relative w-full h-full duration-500 transform-style-3d group-hover:rotate-y-180 rounded-2xl glass-card glass-card-hover">
                         <!-- FRONT SIDE (HIGH SCHOOL NAMEPLATE) -->
-                        <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800/80 to-slate-900">
+                        <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800/40 to-slate-900/80">
                             <div>
                                 <div class="flex justify-between items-center mb-3">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
                                         Section ${item.section}
                                     </span>
                                     <i class="fa-solid fa-arrows-rotate text-slate-600 text-xs group-hover:text-amber-400 transition-colors" title="Hover to flip"></i>
                                 </div>
-                                <div class="w-16 h-16 mx-auto rounded-full bg-slate-800 border-2 border-amber-400/40 flex items-center justify-center text-amber-300 font-bold text-xl mb-3 shadow-inner">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-slate-900 border-2 border-amber-400/40 flex items-center justify-center text-amber-300 font-bold text-xl mb-3 shadow-inner">
                                     ${item.name.charAt(0)}
                                 </div>
                                 <h3 class="text-white font-bold text-center text-sm line-clamp-2">${item.name}</h3>
@@ -530,13 +542,13 @@
                         </div>
 
                         <!-- BACK SIDE (OPTIONAL / NOSTALGIA BACK) -->
-                        <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-amber-950/80 to-slate-950 border border-amber-500/30">
+                        <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl p-5 flex flex-col justify-between bg-gradient-to-b from-amber-950/70 to-slate-950 border border-amber-500/30">
                             <div>
                                 <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 block mb-1">BNHS Alumni</span>
                                 <h4 class="text-white font-bold text-sm mb-2">${item.name}</h4>
                                 <p class="text-slate-300 text-xs italic mb-2">"Proud Batch 2012 graduate from Poblacion, Burgos, Pangasinan."</p>
                             </div>
-                            <div class="space-y-1 text-[11px] text-slate-400 border-t border-slate-800 pt-2">
+                            <div class="space-y-1 text-[11px] text-slate-400 border-t border-slate-800/80 pt-2">
                                 <div class="flex items-center gap-1.5"><i class="fa-solid fa-school text-amber-400"></i> Section ${item.section}</div>
                                 <div class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-amber-400"></i> Class of 2012</div>
                             </div>
@@ -609,12 +621,12 @@
             gallery.innerHTML = '';
             galleryPhotos.forEach(photo => {
                 const item = document.createElement('div');
-                item.className = 'relative group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 h-52';
+                item.className = 'relative group overflow-hidden rounded-2xl glass-card h-52';
                 item.innerHTML = `
                     <img src="${photo.url}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-4">
-                        <span class="text-[10px] font-bold text-amber-400 bg-black/50 backdrop-blur px-2 py-0.5 rounded border border-amber-400/20">${photo.tag}</span>
+                        <span class="text-[10px] font-bold text-amber-400 bg-black/60 backdrop-blur px-2 py-0.5 rounded-lg border border-amber-400/20">${photo.tag}</span>
                         <h4 class="text-white font-semibold text-sm mt-1">${photo.title}</h4>
                     </div>
                 `;
